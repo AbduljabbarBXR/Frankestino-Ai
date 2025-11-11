@@ -1,0 +1,3 @@
+Actual startup time: 57.12 seconds
+Target: <30 seconds
+Status: REVIEW
