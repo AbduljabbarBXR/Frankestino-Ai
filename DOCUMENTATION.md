@@ -1213,15 +1213,51 @@ cd frankenstino-ai
 bash
 pip install -r requirements.txt
 
-#### 3. Download Models
+#### 3. Download Required Models
+
+**Important**: Since models are not included in the repository due to size constraints, you must download them manually. The system requires the following models:
+
+##### Required Models
+
+1. **Qwen2.5-7B-Instruct-1M-Q4_K_M.gguf** (Main LLM Model)
+   - **Size**: ~4.5 GB
+   - **Purpose**: Unified model for all AI tasks (frontend chat, backend processing, memory curation)
+   - **Download Location**: [Hugging Face - Qwen2.5-7B-Instruct-GGUF](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF)
+   - **Specific File**: `Qwen2.5-7B-Instruct-1M-Q4_K_M.gguf`
+   - **Installation**: Place in `backend/models/` directory
+
+2. **sentence-transformers/all-MiniLM-L6-v2** (Embedding Model)
+   - **Size**: ~90 MB
+   - **Purpose**: Text embeddings for semantic search and memory indexing
+   - **Download Location**: [Hugging Face - all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)
+   - **Installation**: Will be downloaded automatically by the system on first run (requires internet connection)
+
+##### Download Instructions
+
 bash
-# Download LLM models
-python scripts/download_models.py
+# Create models directory
+mkdir -p backend/models
 
-# Verify model integrity
-python scripts/verify_models.py
+# Download the Qwen GGUF model
+# Visit: https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF
+# Download: Qwen2.5-7B-Instruct-1M-Q4_K_M.gguf
+# Place the file in: backend/models/
 
-#### 4. Configure Environment
+# Verify download
+ls -la backend/models/Qwen2.5-7B-Instruct-1M-Q4_K_M.gguf
+
+##### Alternative Download Methods
+
+If you prefer automated download (requires `huggingface_hub`):
+
+bash
+# Install huggingface_hub if not already installed
+pip install huggingface_hub
+
+# Download Qwen model
+huggingface-cli download Qwen/Qwen2.5-7B-Instruct-GGUF Qwen2.5-7B-Instruct-1M-Q4_K_M.gguf --local-dir backend/models --local-dir-use-symlinks False
+
+#### 5. Configure Environment
 bash
 # Copy configuration template
 cp config.template.yaml config.yaml
@@ -1229,7 +1265,7 @@ cp config.template.yaml config.yaml
 # Edit configuration with your settings
 nano config.yaml
 
-#### 5. Initialize Database
+#### 6. Initialize Database
 bash
 # Create data directories
 python scripts/init_database.py
@@ -1237,7 +1273,7 @@ python scripts/init_database.py
 # Run initial setup
 python scripts/setup.py
 
-#### 6. Start Services
+#### 8. Start Services
 bash
 # Start backend server
 python backend/main.py
