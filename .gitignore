@@ -1,0 +1,33 @@
+# Virtual env
+frankenstino_env/
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Local env & secrets
+.env
+*.env
+
+# Data / caches / embeddings
+data/
+data/cache/
+data/embeddings/
+
+# Models / weights
+backend/models/*.gguf
+models/lightweight/
+models/*.gguf
+models/*.pt
+models/*.bin
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Notebook checkpoints
+.ipynb_checkpoints/
