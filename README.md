@@ -19,8 +19,8 @@ cd frankenstino-ai
 # Install dependencies
 pip install -r requirements.txt
 
-# Download models (optional)
-python scripts/download_models.py
+# Download required models (see documentation for details)
+# Models must be downloaded manually due to size constraints
 
 # Start the system
 python backend/main.py
@@ -276,8 +276,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- **Documentation**: [docs.frankenstino.ai](https://docs.frankenstino.ai)
-- **Issues**: [GitHub Issues](https://github.com/AbduljabbarBXR/Frankestino-Ai.git/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/AbduljabbarBXR/Frankestino-Ai.git/discussions)
+- **Documentation**: [DOCUMENTATION.md](DOCUMENTATION.md)
+- **User Guide**: [USER_GUIDE.md](USER_GUIDE.md)
+- **Issues**: [GitHub Issues](https://github.com/AbduljabbarBXR/Frankenstino-Ai/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/AbduljabbarBXR/Frankenstino-Ai/discussions)
+- **Email**: abduljabbarbxr@gmail.com
 
 **Frankenstino AI** - Where artificial intelligence meets biological inspiration for the next generation of cognitive computing.
